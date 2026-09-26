@@ -1,4 +1,4 @@
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal, getcontext
 
 from toolkit.constant import (
     length_units,
@@ -9,6 +9,7 @@ from toolkit.constant import (
 )
 from toolkit.errors import AbsoluteZero, IncompatibleUnits, IncorrectUnit
 
+getcontext().rounding = ROUND_HALF_UP
 
 def length_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
     """Функция для конвертации длин через базовую единицу"""

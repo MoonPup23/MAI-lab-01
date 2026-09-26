@@ -1,7 +1,8 @@
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal, getcontext
 
 from toolkit.errors import DivisionByZero
 
+getcontext().rounding = ROUND_HALF_UP
 
 def calculation(tokens: list[str]) -> Decimal:
     """ Функция для финального вычисления и определения порядка выполнения операций"""
