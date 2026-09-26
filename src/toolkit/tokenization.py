@@ -2,9 +2,10 @@ from toolkit.errors import UnknownCharError
 
 
 def tokenization(text: str) -> list[str]:
+    """ Функция для разделения выражения на токены через буфер"""
     tokens = []
-    buffer = ""  # число которое мы собираем посимвольно
-    sign = ""  # знак перед числом
+    buffer = ""
+    sign = ""
 
     for char in text:
 
@@ -17,13 +18,13 @@ def tokenization(text: str) -> list[str]:
 
         if char == "-" or char == "+":
 
-            if buffer:  # если буфер не пустой
+            if buffer:
                 tokens.append(sign + buffer)
                 buffer = ""
                 sign = ""
                 tokens.append(char)
 
-            else:  # если буфер пустой
+            else:
                 sign = char
 
             continue
@@ -44,3 +45,6 @@ def tokenization(text: str) -> list[str]:
         tokens.append(sign + buffer)
 
     return tokens
+
+
+print(tokenization("5 - - - 5"))

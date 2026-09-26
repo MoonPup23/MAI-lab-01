@@ -46,6 +46,7 @@ def test_validation_incorrect_number_end() -> None:
     with pytest.raises(IncorrectCharacter):
         validation(["2 +"])
 
+
 def test_validation_operators() -> None:
     with pytest.raises(IncorrectCharacter):
         validation(["2 ** 3"])

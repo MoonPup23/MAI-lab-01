@@ -4,7 +4,7 @@ from toolkit.errors import EmptyList, IncorrectCharacter
 
 
 def validation(tokens: list[str]) -> list[str]:
-    """ Функиця для валидации токенов и проверки их на корректность"""
+    """ Функция для валидации токенов и проверки их на корректность"""
 
     character_flag = True
 

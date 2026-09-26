@@ -11,6 +11,7 @@ from toolkit.errors import AbsoluteZero, IncompatibleUnits, IncorrectUnit
 
 
 def length_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
+    """Функция для конвертации длин через базовую единицу"""
 
     from_unit = from_unit.lower()
     to_unit = to_unit.lower()
@@ -31,6 +32,7 @@ def length_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
 
 
 def weight_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
+    """Функция для конвертации массы через базовую единицу"""
     from_unit = from_unit.lower()
     to_unit = to_unit.lower()
 
@@ -50,6 +52,7 @@ def weight_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
 
 
 def temperature_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
+    """ Функция для конвертации температур. За основу формул берутся данные для перевода из открытых источников. Также учитывается абсолютный ноль """
     from_unit = from_unit.lower()
     to_unit = to_unit.lower()
 
@@ -82,6 +85,7 @@ def temperature_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal
 
 
 def final_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
+    """ Финальная функция,которая  """
     from_unit = from_unit.lower()
     to_unit = to_unit.lower()
 
@@ -96,13 +100,13 @@ def final_convert(value: Decimal, from_unit: str, to_unit: str) -> Decimal:
         )
 
     if from_unit in length_units and to_unit in length_units:
-        return length_convert(value , from_unit, to_unit)
+        return length_convert(value, from_unit, to_unit)
 
     if from_unit in weight_units and to_unit in weight_units:
-        return weight_convert(value , from_unit, to_unit)
+        return weight_convert(value, from_unit, to_unit)
 
     if from_unit in temperature_units and to_unit in temperature_units:
-        return temperature_convert(value , from_unit, to_unit)
+        return temperature_convert(value, from_unit, to_unit)
 
     raise IncompatibleUnits(
         "Incompatible units"

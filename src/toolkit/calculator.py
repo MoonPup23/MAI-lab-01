@@ -3,8 +3,9 @@ from decimal import Decimal
 from toolkit.errors import DivisionByZero
 
 
-def calculation(tokens: list[str] ) -> Decimal:
-    new_tokens  : list[str | Decimal] = []
+def calculation(tokens: list[str]) -> Decimal:
+    """ Функция для финального вычисления и определения порядка выполнения операций"""
+    new_tokens: list[str | Decimal] = []
     i = 0
 
     while i < len(tokens):
