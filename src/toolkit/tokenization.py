@@ -25,8 +25,10 @@ def tokenization(text: str) -> list[str]:
                 tokens.append(char)
 
             else:
-                sign = char
-
+                if sign == "-":
+                    sign = ""
+                else:
+                    sign = "-"
             continue
 
         if char in "*/":
@@ -45,6 +47,3 @@ def tokenization(text: str) -> list[str]:
         tokens.append(sign + buffer)
 
     return tokens
-
-
-print(tokenization("5 - - - 5"))

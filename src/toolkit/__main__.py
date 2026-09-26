@@ -11,7 +11,7 @@ from toolkit.validation import validation
 app = typer.Typer()
 
 
-@app.command()
+@app.command(context_settings={"ignore_unknown_options": True})
 def calc(expression: str) -> None:
     try:
         tokens = tokenization(expression)
@@ -26,7 +26,7 @@ def calc(expression: str) -> None:
         raise typer.Exit(code=2)
 
 
-@app.command()
+@app.command(context_settings={"ignore_unknown_options": True})
 def convert(value: str, from_unit: str = typer.Option(..., "--from"), to_unit: str = typer.Option(..., "--to")):
     try:
         result = final_convert(Decimal(str(value)), from_unit, to_unit)
