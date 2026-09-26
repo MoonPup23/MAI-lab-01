@@ -5,9 +5,10 @@ repos:
       - id: mypy
         args: [--show-error-codes, --pretty]
         additional_dependencies:
+          - typer
           - types-requests
           - types-PyYAML
-
+          - pytest
 
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
