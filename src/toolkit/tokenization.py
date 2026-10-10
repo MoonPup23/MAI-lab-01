@@ -25,10 +25,11 @@ def tokenization(text: str) -> list[str]:
                 tokens.append(char)
 
             else:
-                if sign == "-":
-                    sign = ""
-                else:
-                    sign = "-"
+                if char == "-":
+                    if sign == "-":
+                        sign = ""
+                    else:
+                        sign = "-"
             continue
 
         if char in "*/":
